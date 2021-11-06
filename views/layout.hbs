@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{title}}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300&display=swap" rel="stylesheet"> 
+    <link rel='stylesheet' href='/stylesheets/normalize.css' />
+    <link rel='stylesheet' href='/stylesheets/accesibilidad.css' />
+  </head>
+  <body>
+    <header>
+        <div class="logo holder">
+           <img src="images/logo_av.png" class="logo_av" alt="Acceso Visual" width="100">
+            <h1>Acceso Visual</h1>
+        </div>
+    </header>
+    <nav>
+        <ul class="holder">
+            <li><a class="{{#if isHome}}activo{{/if}}" href="/">Home</a></li>
+            <li><a class="{{#if isNosotros}}activo{{/if}}" href="/nosotros">Nosotros</a></li>
+            <li><a class="{{#if isServicios}}activo{{/if}}" href="/servicios">Servicios</a></li>
+            <li><a class="{{#if isContacto}}activo{{/if}}" href="/contacto">Contacto</a></li>
+        </ul>
+    </nav>
+    <main class="holder">
+        {{{body}}}      
+    </main>
+    <footer>
+        <p>Tarea entrega 1: Leonel López Borbón</p>
+    </footer>
+</body>
+
+</html>

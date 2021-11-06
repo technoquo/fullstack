@@ -1,0 +1,26 @@
+<div class="container" style="margin-top:80px; margin-bottom:50px;">
+    <div class="row">
+        <h2>Para agregar una novedad</h2>
+        <form action="/admin/servicios/agregar" method="post">
+            <div class="mb-3">
+                <label for="titulo" class="form-label">Título</label>
+                <input type="text" class="form-control" id="titulo" name="titulo">
+            </div>
+
+            <div class="mb-3">
+                <label for="subtitulo" class="form-label">Subtítulo</label>
+                <textarea class="form-control" id="subtitulo" rows="3" name="subtitulo"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="cuerpo" class="form-label">Cuerpo</label>
+                <textarea class="form-control" id="cuerpo" rows="3" name="cuerpo"></textarea>
+            </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Grabar</button>
+    </form>
+    {{#if error}}
+         <p>{{message}}</p>
+    {{/if}}
+    
+</div>
+</div>
