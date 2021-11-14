@@ -5,12 +5,21 @@ var serviciosModel = require('../../models/serviciosModel');
 
 
 router.get('/', async function (req, res, next) {
-    var servicios = await serviciosModel.getServicios();
+   // var servicios = await serviciosModel.getServicios();
+
+   var servicios
+   if (req.query.q === undefined){
+       servicios = await serviciosModel.getServicios();
+   } else {
+       servicios = await serviciosModel.buscarServicios(req.query.q);
+   }
 
     res.render('admin/servicios', {
         layout: 'admin/layout',
         usuario: req.session.nombre,
-        servicios
+        servicios,
+        is_search:req.query.q !== undefined,
+        q: req.query.q
     });
 });
 
@@ -78,9 +87,15 @@ router.get('/modificar/:id',async(req,res,next) =>{
           res.redirect('/admin/servicios');
 
         } catch(error){
-            // aca llegamos IMPORTANTE 
+            console.log(error),
+            res.render('admin/layout', {
+            error: true,
+            message: 'No se modifico el servicio'
+            })
         }
         
   });
+
+
 
 module.exports = router;

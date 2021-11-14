@@ -8,6 +8,14 @@ router.get('/', function (req, res, next) {
     });
 });
 
+router.get('/logout', async(req,res,next)=>{
+
+    req.session.destroy();
+    res.render('admin/login', {
+        layout: 'admin/layout'
+    });    
+});
+
 router.post('/', async (req, res, next) => {
     try {
         var usuario = req.body.usuario;

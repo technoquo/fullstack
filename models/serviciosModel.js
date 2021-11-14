@@ -1,4 +1,4 @@
-const { Router } = require('express');
+const { Router, query } = require('express');
 const { getSystemErrorMap } = require('util');
 var pool = require('./bd');
 async  function getServicios(){
@@ -44,4 +44,10 @@ async function UpdateServiciosbyId(obj,id) {
     }
 }
 
-module.exports = { getServicios,deleteSerivcioById, insertServicios, getServiciosById, UpdateServiciosbyId }
+async function  buscarServicios(busqueda){
+    var query = 'select * from servicios where titulo like ? OR subtitulo like ? OR cuerpo like ?';
+    var rows  = await pool.query(query, ['%' + busqueda + '%','%' + busqueda + '%','%' + busqueda + '%']);
+    return rows;
+}
+
+module.exports = { getServicios,deleteSerivcioById, insertServicios, getServiciosById, UpdateServiciosbyId, buscarServicios }

@@ -186,4 +186,8 @@ input[type=text], select {
     background-color: #f8f8f8;
     resize: none;
   }
-  
+  .buscador {
+      float: right;
+      position: relative;
+      bottom: 40px;
+  }
