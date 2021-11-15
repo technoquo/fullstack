@@ -1,7 +1,7 @@
         <h2>Servicios</h2>
         <div class="buscador">
-            <form action="" method="get">
-                <input type="search" name="q">
+            <form action="/servicios" method="get">
+                <input type="search" name="q" {{#if q}} value="{{q}}" {{/if}}/> 
                 <button type="submit">Buscar</button>
             </form>
         </div>
@@ -12,5 +12,12 @@
             <p>{{{cuerpo}}}</p>           
             <hr/>
         </div>
-        {{/each}}
+     {{/each}}
+     {{#if is_search}}
+       {{#unless servicios.lenght}}
+             <p>No se encontraron resultados para <b>"{{q}}"</b></p>
+       {{/unless}}
+     {{/if}}
+
+
   
